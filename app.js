@@ -4,6 +4,7 @@ const galleryHeader = document.querySelector('.gallery-header');
 const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
+let counterNumber = parseInt(document.getElementById('count-img').innerText);
 // selected image 
 let sliders = [];
 
@@ -34,7 +35,7 @@ const getImages = (query) => {
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
     .then(data => showImages(data.hits))
-    .catch(err => console.log(err))
+    .catch(error => console.log(error))
   }, 1000);
 }
 
@@ -47,11 +48,15 @@ const selectItem = (event, img) => {
     if (item === -1) 
     {
         sliders.push(img);
+        counterNumber++;
+       document.getElementById('count-img').innerText = counterNumber;
     }
     else 
     {
         let splice = sliders.indexOf(img);
         sliders.splice(splice, 1);
+        counterNumber--;
+        document.getElementById('count-img').innerText = counterNumber;
     }
 };
 
@@ -136,7 +141,6 @@ sliderBtn.addEventListener('click', function () {
 
 
 //Input field Enter button
-
 var input = document.getElementById("search");
 
 // Execute a function when the user releases a key on the keyboard
@@ -146,10 +150,6 @@ input.addEventListener("keyup", function(event) {
     document.getElementById("search-btn").click();
   }
 });
-
-
-//Error massage
-const error = document.getElementById('error-msg');
 
 
 //Spinner added

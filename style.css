@@ -59,9 +59,12 @@ img {
   margin-top: 70px;
 }
 
-#error-msg{
-  display: none;
+.counter-number{
+  color: blue;
+  font-size: 18px;
+  font-weight: 500;
 }
+
 
 #loading-spinner{
   position: absolute;
