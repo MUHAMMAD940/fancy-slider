@@ -55,9 +55,25 @@ img {
   display: none;
 }
 
+.images{
+  margin-top: 70px;
+}
+
 #error-msg{
   display: none;
 }
+
+#loading-spinner{
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+
+
 
 
 @media (max-width: 767px) {
